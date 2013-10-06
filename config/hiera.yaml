@@ -1,5 +1,6 @@
 ---
 :backends:
+  - json
   - yaml
 
 :hierarchy:
@@ -10,3 +11,8 @@
 
 :yaml:
   :datadir: /vagrant/hieradata
+
+:json:
+  :datadir: /vagrant/hieradata
+
+:logger: console
