@@ -73,44 +73,44 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |v|
             end
       end
 
-      #Install puppet 3
+      # Install puppet repository.
       b.vm.provision :shell, :path => "scripts/bootstrap.sh"
 
       # Added shell provisioning.
       b.vm.provision :shell, :inline => "apt-get update"
 
-      # Ensure puppet 3 is installed
+      # Ensure puppet 3 is installed.
       b.vm.provision :shell, :inline => "apt-get -y install puppet"
 
-      # Install Basic plugins
+      # Install Basic packages.
       b.vm.provision :shell, :inline => "apt-get -y install build-essential"
 
-      # Install The Editor
+      # Install The Editor.
       b.vm.provision :shell, :inline => "apt-get -y install vim"
 
-      # Install SCMs
+      # Install VCS.
       b.vm.provision :shell, :inline => "apt-get -y install git"
 
-      # Install Tools
+      # Ensure cURL is installed.
       b.vm.provision :shell, :inline => "apt-get -y install curl"
 
-      # Added puppet provisioner
+      # Added puppet as a provisioner.
       b.vm.provision :puppet do |puppet|
-        puppet.manifests_path = "manifests"
-        puppet.manifest_file  = c['manifest_file']
-        puppet.module_path    = "modules"
-        puppet.hiera_config_path   = "config/hiera.yaml"
-        puppet.temp_dir            = "/tmp/vagrant-puppet"
-        puppet.working_directory   = "/vagrant/hieradata"
-        puppet.options = "--verbose --debug --summarize --environment #{c['environment']}"
-        puppet.facter         = {
-          "vagrant"   => c['vagrant_id'],
-          "fqdn"      => c['fqdn'],
-          "ipaddress" => c['ip'],
-          # Vm will override this value depending on your resolv.conf of the host.
-          # check your system preferences => network.
-          "domain"    => c['domain']
-        }
+        puppet.manifests_path    = "manifests"
+        puppet.manifest_file     = c['manifest_file']
+        puppet.module_path       = "modules"
+        puppet.hiera_config_path = "config/hiera.yaml"
+        puppet.temp_dir          = "/tmp/vagrant-puppet"
+        puppet.working_directory = "/vagrant/hieradata"
+        puppet.options           = "--verbose --debug --summarize --environment #{c['environment']}"
+        puppet.facter            = {
+                                    "vagrant"   => c['vagrant_id'],
+                                    "fqdn"      => c['fqdn'],
+                                    "ipaddress" => c['ip'],
+                                    # Vm will override this value depending on your resolv.conf of the host.
+                                    # check your system preferences => network.
+                                    "domain"    => c['domain']
+                                   }
       end
     end
   end
