@@ -102,7 +102,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |v|
         puppet.hiera_config_path   = "config/hiera.yaml"
         puppet.temp_dir            = "/tmp/vagrant-puppet"
         puppet.working_directory   = "/vagrant/hieradata"
-        puppet.options = "--verbose --debug --summarize --environment c['environment']"
+        puppet.options = "--verbose --debug --summarize --environment #{c['environment']}"
         puppet.facter         = {
           "vagrant"   => c['vagrant_id'],
           "fqdn"      => c['fqdn'],
