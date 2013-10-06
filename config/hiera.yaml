@@ -1,0 +1,12 @@
+---
+:backends:
+  - yaml
+
+:hierarchy:
+  - local
+  - '%{operatingsystem}'
+  - '%{::environment}'
+  - common
+
+:yaml:
+  :datadir: /vagrant/hieradata

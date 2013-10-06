@@ -1,4 +1,4 @@
-vagrant-template
-================
+vagrant-backend
+===============
 
-Template for Vagrant using puppet + shell provisioners
+Vagrant machines to deploy devel environment for Backend
