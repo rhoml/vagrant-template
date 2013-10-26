@@ -17,6 +17,7 @@ VAGRANTFILE_API_VERSION = "2"
 servers = { "testbox"    => { "box"            => "base",
                               "box_url"        => "http://files.vagrantup.com/precise64.box",
                               "cpu"            => "1",
+                              "environment"    => "devel",
                               "name"           => "testbox",
                               "domain"         => "dev.local",
                               "fqdn"           => "testbox.dev.local",
