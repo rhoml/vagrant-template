@@ -14,17 +14,19 @@
 #Define each configuration in a ruby hash
 VAGRANTFILE_API_VERSION = "2"
 
-servers = { "vagrantbox" => { "box"            => "base",
+servers = { "testbox"    => { "box"            => "base",
                               "box_url"        => "http://files.vagrantup.com/precise64.box",
                               "cpu"            => "1",
-                              "environment"    => "devel".
-                              "name"           => "vagrantbox",
+                              "name"           => "testbox",
                               "domain"         => "dev.local",
-                              "fqdn"           => "vagrantbox.dev.local",
-                              "ip"             => "192.168.50.4",
+                              "fqdn"           => "testbox.dev.local",
+                              "ip"             => "192.168.50.7",
+                              "ports"          => { "6379" => "6379",
+                                                    "6480" => "6480"},
                               "memory"         => "512",
-                              "manifest_file"  => "box.pp"},
+                              "manifest_file"  => "testbox.pp"}
           }
+
 
 # Here's a quick breakdown on what the single letter objects mean.
 # b - box configuration
